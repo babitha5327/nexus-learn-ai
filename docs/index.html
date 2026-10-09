@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>NEXUS LEARN AI</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f7fb;--c:#fff;--t:#14172b;--mu:#667089;--b:#e3e6f0;--ac:#5b5bf0;--g:#1f9d63;--y:#d9a400;--r:#d6455d;--gr:#9aa3b5}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0e1020;--c:#171a30;--t:#eceefa;--mu:#98a0bd;--b:#2a2e4a;--ac:#8b8bff}}
+:root[data-theme=dark]{--bg:#0e1020;--c:#171a30;--t:#eceefa;--mu:#98a0bd;--b:#2a2e4a;--ac:#8b8bff}
+body{margin:0;background:var(--bg);color:var(--t);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--b);background:var(--c);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+header b{font-size:17px;letter-spacing:.5px;margin-right:8px}nav{display:flex;flex-wrap:wrap;gap:4px;flex:1}
+button,select,input,textarea{font:inherit;color:var(--t)}
+nav button,.btn{border:1px solid var(--b);background:var(--c);border-radius:8px;padding:6px 12px;cursor:pointer}
+nav button.on,.btn.pri{background:var(--ac);color:#fff;border-color:var(--ac)}button:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+main{max-width:1000px;margin:0 auto;padding:16px}.card{background:var(--c);border:1px solid var(--b);border-radius:12px;padding:16px;margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}h2{margin:0 0 8px;font-size:18px}h3{margin:0 0 6px;font-size:15px}.mu{color:var(--mu);font-size:13px}
+.bar{height:8px;background:var(--b);border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;transition:width .5s}
+.pill{border:1px solid var(--ac);color:var(--ac);background:transparent;border-radius:999px;padding:2px 10px;font-size:12px;cursor:pointer;margin:2px 4px 2px 0}
+.tag{display:inline-block;border-radius:6px;padding:1px 8px;font-size:12px;color:#fff}.g{background:var(--g)}.p{background:var(--y)}.n{background:var(--r)}
+input,select,textarea{background:var(--bg);border:1px solid var(--b);border-radius:8px;padding:8px;max-width:100%}textarea{width:100%;box-sizing:border-box}
+.opt{display:block;width:100%;text-align:left;margin:6px 0;padding:10px;border:1px solid var(--b);background:var(--bg);border-radius:8px;cursor:pointer}
+table{width:100%;border-collapse:collapse;font-size:13px;display:block;overflow-x:auto}td,th{padding:6px;border-bottom:1px solid var(--b);text-align:left}
+#dr{position:fixed;right:0;top:0;bottom:0;width:min(380px,100%);background:var(--c);border-left:1px solid var(--b);padding:16px;overflow:auto;transform:translateX(100%);transition:transform .2s;z-index:9;box-sizing:border-box;padding-top:calc(16px + env(safe-area-inset-top,0px))}#dr.on{transform:none}
+body{background:radial-gradient(900px 500px at 85% -10%,#5b5bf033,transparent),radial-gradient(700px 400px at -10% 110%,#1f9d6322,transparent),var(--bg);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+header{background:color-mix(in srgb,var(--c) 80%,transparent);backdrop-filter:blur(14px)}
+header b{font-weight:800;background:linear-gradient(90deg,#6c6cff,#18c08f);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:19px}
+nav button{border:0;background:transparent;color:var(--mu);transition:all .15s}nav button:hover{background:var(--bg);color:var(--t)}
+nav button.on{background:linear-gradient(135deg,#6c6cff,#4a4ae0);color:#fff;box-shadow:0 4px 14px #5b5bf055}
+.card{background:color-mix(in srgb,var(--c) 85%,transparent);backdrop-filter:blur(10px);border-radius:16px;box-shadow:0 6px 24px #0f122a14;transition:transform .15s,box-shadow .15s}.card:hover{transform:translateY(-1px);box-shadow:0 10px 30px #0f122a22}
+.btn{transition:all .15s}.btn:hover{border-color:var(--ac)}.btn.pri{background:linear-gradient(135deg,#6c6cff,#4a4ae0);box-shadow:0 4px 14px #5b5bf055}
+.bar{height:10px}.bar i{border-radius:6px;box-shadow:0 0 10px currentColor}
+.hero{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding:26px;border-radius:20px;margin-bottom:14px;color:#fff;background:linear-gradient(120deg,#4a4ae0,#7a5cf0 55%,#18b894);box-shadow:0 12px 36px #4a4ae04d}
+.hero h1{margin:2px 0 6px;font-size:30px;line-height:1.15}.hero p{margin:0;opacity:.92;max-width:520px}.hero .btn{background:#fff;color:#3b3bc9;border:0;font-weight:700;padding:10px 18px}
+.ring{width:110px;height:110px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--g) calc(var(--p)*1%),var(--b) 0);position:relative;margin-bottom:8px}.ring:before{content:"";position:absolute;inset:11px;background:var(--c);border-radius:50%}.ring b{position:relative;font-size:26px}
+.msg:not(.me){background:var(--bg);border:1px solid var(--b);border-radius:14px;padding:12px 14px}.me span{background:linear-gradient(135deg,#6c6cff,#4a4ae0)}
+.opt{transition:all .12s}.opt:hover:not(:disabled){border-color:var(--ac);transform:translateX(3px)}
+svg circle{filter:drop-shadow(0 3px 8px #5b5bf066);transition:r .2s}svg g:hover circle{r:27}
+.tag{letter-spacing:.4px;font-weight:600}
+@media(min-width:860px){header{position:fixed;left:0;top:0;bottom:0;width:230px;flex-direction:column;align-items:stretch;border-right:1px solid var(--b);border-bottom:0;padding:22px 14px;gap:16px;box-sizing:border-box}nav{flex-direction:column;flex:1}nav button{text-align:left;padding:11px 14px;font-weight:500}main{margin-left:230px;max-width:1040px;padding:28px}}
+@media(max-width:859px){.hero h1{font-size:24px}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:14px}.tile{padding:14px 16px;border-radius:16px;background:color-mix(in srgb,var(--c) 85%,transparent);border:1px solid var(--b);box-shadow:0 6px 24px #0f122a14}.tile small{color:var(--mu);font-size:11px;letter-spacing:.8px;font-weight:600}.tile div{font-size:28px;font-weight:800;margin-top:2px}
+.nba{border-left:4px solid var(--ac);background:linear-gradient(135deg,#5b5bf01f,transparent)}
+.mode{cursor:pointer;border-top:3px solid var(--ac)}.mode:hover{transform:translateY(-3px)}.mode h3{font-size:17px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px}.chips button{border:1px solid var(--b);background:var(--bg);border-radius:999px;padding:6px 14px;cursor:pointer}.chips button:hover{border-color:var(--ac);color:var(--ac)}
+.pill{padding:4px 12px;font-weight:600}.pill.SLIDE{border-color:#d9a400;color:#b58900}.pill.VIDEO{border-color:var(--r);color:var(--r)}
+h2{font-size:22px;font-weight:800;letter-spacing:-.3px}
+mark{background:#ffd54f55;color:inherit}.msg{margin:10px 0}.me{text-align:right}.me span{background:var(--ac);color:#fff;padding:6px 12px;border-radius:12px;display:inline-block}
+</style></head><body>
+<header><b>NEXUS LEARN AI</b><nav id="nav"></nav><button class="btn" onclick="theme()">Theme</button></header>
+<main id="main"></main><aside id="dr" aria-label="Source viewer"></aside>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const SW=new Set('a an the is are was were of to in on for and or with by as at from that this it its be can how what why which does do explain who when where tell me about give'.split(' '));
+const stem=w=>w.length>4&&w.endsWith('ies')?w.slice(0,-3)+'y':w.length>3&&w.endsWith('s')&&!w.endsWith('ss')?w.slice(0,-1):w,tok=s=>(s.toLowerCase().match(/[a-z0-9]+/g)||[]).filter(w=>w.length>1&&!SW.has(w)).map(stem);
+const avg=a=>a.length?a.reduce((x,y)=>x+y,0)/a.length:0,pc=x=>Math.round(x*100)+'%';
+const SL='Lecture Slides · Slide ',TB='Textbook · p.',VD='Lecture 07 video · ';
+const DEMO=[['Regression',TB+'12','Linear regression fits a line that minimizes the sum of squared residuals between predictions and observed values. The slope and intercept are found using the least squares method.',['least squares','residuals']],
+['Overfitting',SL+'9','Overfitting happens when a model memorizes noise in the training data and performs poorly on unseen data. Regularization and cross-validation reduce overfitting.',['regularization','cross-validation']],
+['Overfitting',TB+'31','A large gap between training error and validation error is a sign of high variance. Adding more training data usually lowers variance.',['variance','validation error']],
+['KNN',SL+'5','K-nearest neighbours classifies a point by majority vote among its k closest training points. The distance is usually Euclidean.',['majority vote','Euclidean']],
+['KNN',TB+'44','A small k makes the decision boundary flexible and increases variance. A large k smooths the boundary and increases bias.',['decision boundary','bias']],
+['SVM',SL+'14','A support vector machine finds the hyperplane that maximizes the margin between two classes. The training points closest to the hyperplane are called support vectors.',['margin','support vectors']],
+['SVM',TB+'58','A soft margin allows some misclassified points, controlled by the penalty parameter C. A large C penalizes errors heavily and risks overfitting.',['penalty parameter C','soft margin']],
+['Kernel Trick',SL+'18','The kernel trick computes inner products in a higher-dimensional space without explicitly mapping the data into that space. It lets an SVM learn a non-linear boundary using a linear algorithm.',['inner products','non-linear boundary']],
+['Kernel Trick',VD+'12:34–13:21','Common kernels are the linear kernel, the polynomial kernel and the RBF kernel. The RBF kernel measures similarity using distance and its gamma parameter controls how far each point influence reaches.',['RBF kernel','gamma']],
+['Decision Trees',SL+'22','A decision tree splits data on the feature that gives the highest information gain. Entropy measures how impure a node is.',['information gain','entropy']],
+['Decision Trees',TB+'71','Pruning removes branches that add little predictive power and helps prevent overfitting in deep trees.',['pruning']],
+['K-Means',SL+'27','K-means clustering assigns each point to the nearest centroid and then recomputes each centroid as the mean of its cluster. The steps repeat until assignments stop changing.',['centroid','mean']],
+['K-Means',VD+'21:05–21:50','The elbow method plots within-cluster variance against k to choose a sensible number of clusters.',['elbow method']]];
+const DPRE={Overfitting:['Regression'],'Kernel Trick':['SVM'],'Decision Trees':['Overfitting']};
+const EVAL=[['What is the kernel trick?',7],['How does least squares fit a line?',0],['What does regularization do?',1],['How does KNN classify a point?',3],['What is a soft margin and parameter C?',6],['What does the RBF gamma parameter control?',8],['What is information gain?',9],['How does k-means update a centroid?',11],['How do I choose the number of clusters with the elbow method?',12],['What are support vectors?',5],['Explain backpropagation in neural networks',null],['Who won the cricket world cup?',null],['What is the capital of France?',null],['How do transformers use attention?',null]];
+let C=[],PRE={},T=[],DF={},ITEMS=[],S,tab='dash',sel=null,QT=[],M=[],R=null,P=null,EVR=null,SIM=null;
+const DEF=()=>({m:{},mis:{},ev:[],asked:{},a:.3,n:0,ok:0,cust:null});
+function save(){try{localStorage.setItem('nexus1',JSON.stringify(S))}catch(e){}}
+function boot(f){if(!f)try{S=JSON.parse(localStorage.getItem('nexus1'))}catch(e){}S=S||DEF();S.cust?load(S.cust.map(c=>({t:c[0],s:c[1],x:c[2]})),{}):load(DEMO.map(c=>({t:c[0],s:c[1],x:c[2],k:c[3]})),DPRE)}
+function load(ch,pre){C=ch;PRE=pre;T=[...new Set(C.map(c=>c.t))];DF={};const RD={};
+ C.forEach(c=>{c.set=new Set(tok(c.x+' '+c.t));c.set.forEach(w=>DF[w]=(DF[w]||0)+1);new Set((c.x.toLowerCase().match(/[a-z][a-z-]{5,}/g)||[])).forEach(w=>RD[w]=(RD[w]||0)+1)});
+ C.forEach(c=>{if(!c.k)c.k=[...new Set(c.x.toLowerCase().match(/[a-z][a-z-]{5,}/g)||[])].filter(w=>!SW.has(w)&&!c.t.toLowerCase().includes(w)).sort((a,b)=>RD[a]-RD[b]||b.length-a.length).slice(0,2)});
+ ITEMS=[];C.forEach((c,i)=>c.k.forEach(k=>ITEMS.push({ci:i,k,t:c.t,id:i+'|'+k})));T.forEach(t=>S.m[t]=S.m[t]||{m:.5,n:0,lv:1})}
+function search(q){const qt=[...new Set(tok(q))],N=C.length,idf=w=>Math.log(1+N/(DF[w]||.5)),tot=qt.reduce((a,w)=>a+idf(w),0);
+ const r=C.map((c,i)=>({i,s:qt.reduce((a,w)=>a+(c.set.has(w)?idf(w):0),0)})).filter(o=>o.s>0).sort((a,b)=>b.s-a.s).slice(0,3),cov=new Set();
+ r.forEach(o=>qt.forEach(w=>C[o.i].set.has(w)&&cov.add(w)));const cv=tot?[...cov].reduce((a,w)=>a+idf(w),0)/tot:0;
+ return{r,qt,miss:qt.filter(w=>!cov.has(w)),cv,st:cv>=.75?'g':cv>=.4?'p':'n'}}
+const LAB={g:'COURSE GROUNDED',p:'PARTIALLY SUPPORTED',n:'NOT COVERED IN COURSE MATERIAL'};
+const kind=s=>/slide/i.test(s)?'SLIDE':/\d+:\d+/.test(s)?'VIDEO':'PDF';
+const cite=i=>`<button class="pill ${kind(C[i].s)}" onclick="openSrc(${i})">${{SLIDE:'▤',VIDEO:'▶',PDF:'❏'}[kind(C[i].s)]} ${esc(C[i].s)}</button>`;
+function openSrc(i){const c=C[i],h=esc(c.x).replace(/[A-Za-z]+/g,w=>QT.includes(stem(w.toLowerCase()))?`<mark>${w}</mark>`:w);
+ $('#dr').innerHTML=`<button class="btn" onclick="$('#dr').classList.remove('on')">Close</button><h2 style="margin-top:12px">${kind(c.s)} source</h2><p><b>${esc(c.s)}</b></p><p>${h}</p><p class="mu">Topic: ${esc(c.t)} · Concepts: ${c.k.map(esc).join(', ')}<br>chunk_id: c${i}${kind(c.s)=='VIDEO'?'<br>Transcript segment shown; no video file is bundled in this prototype, so the timestamp is not playable.':''}</p>`;$('#dr').classList.add('on')}
+const lvl=t=>{const x=S.m[t];return x.n==0?'Beginner':x.m<.4?'Beginner':x.m<.7?'Intermediate':'Advanced'};
+function ask(){const q=$('#q').value.trim();if(!q)return;M.push({me:1,x:q});const r=search(q);QT=r.qt;let h='';
+ if(r.st=='n')h=`<p><b>Your uploaded course material does not contain enough information to answer this reliably.</b></p><p class="mu">No external LLM is connected in this prototype, so no outside answer is given. Rephrase, or add material in Sources.</p>`;
+ else{const top=r.r[0],use=r.r.filter((o,i)=>i==0||(i<2&&o.s>=.6*top.s)),t=C[top.i].t,x=S.m[t];
+  h=use.map(o=>`<p>${esc(C[o.i].x)}</p>`).join('')+use.map(o=>cite(o.i)).join('');
+  if(r.st=='p')h+=`<p class="mu">Not found in material: ${r.miss.map(esc).join(', ')}. Only the matching part is answered.</p>`;
+  h+=`<p class="mu">Personalized (${lvl(t)} level): ${x.n==0?'no history on '+esc(t)+' yet. Try the diagnostic.':'your '+esc(t)+' mastery is '+pc(x.m)+'.'}`;
+  const pre=(PRE[t]||[]).filter(p=>S.m[p].n==0||S.m[p].m<.5);if(pre.length)h+=` Prerequisite to review first: ${pre.map(esc).join(', ')}.`;
+  const mi=Object.values(S.mis).filter(z=>z.topic==t);if(mi.length)h+=` Past misconception: ${esc(mi[0].d)}.`;h+='</p>'}
+ M.push({st:r.st,x:h,cv:r.cv});go('tutor')}
+function mkQ(it,d){const c=C[it.ci],sents=c.x.split(/(?<=\.)\s+/),s=sents.find(z=>z.toLowerCase().includes(it.k.toLowerCase()))||c.x,m=s.match(new RegExp(it.k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i'));if(!m)return null;
+ const ans=m[0],stem_=s.replace(m[0],'_____'),pool=ITEMS.filter(z=>z.k.toLowerCase()!=ans.toLowerCase()&&!c.x.toLowerCase().includes(z.k.toLowerCase())),seen=new Set(),ds=[];
+ const pr=z=>d>=3?(z.t==it.t?0:(PRE[it.t]||[]).includes(z.t)?1:2):d==2?Math.random():(z.t==it.t?2:0);
+ [...pool].sort((a,b)=>pr(a)-pr(b)+(Math.random()-.5)*.5).forEach(z=>{if(ds.length<3&&!seen.has(z.k.toLowerCase())){seen.add(z.k.toLowerCase());ds.push({t:z.k,topic:z.t})}});
+ if(ds.length<3)return null;const opts=[{t:ans,topic:it.t},...ds].sort(()=>Math.random()-.5);
+ const v=[['answer appears in cited source',c.x.includes(ans)],['single blank',(stem_.match(/_____/g)||[]).length==1],['options unique',new Set(opts.map(o=>o.t.toLowerCase())).size==4],['distractors absent from source',ds.every(z=>!c.x.toLowerCase().includes(z.t.toLowerCase()))],['not asked before',!S.asked[it.id]]];
+ return v.every(z=>z[1])?{id:it.id,t:it.t,d,ci:it.ci,stem:stem_,opts,ans,v}:null}
+function pick(scope,mode){const ts=scope&&scope!='all'?[scope]:[...T].sort((a,b)=>S.m[a].m-S.m[b].m);
+ for(const t of ts)for(const it of ITEMS.filter(z=>z.t==t&&!S.asked[z.id])){const q=mkQ(it,S.m[t].lv);if(q)return q}return null}
+function upd(t,e,o){const x=S.m[t],b=x.m;x.m=(1-S.a)*b+S.a*e;x.n++;S.ev.push({t,b,a:x.m,o});return b}
+const EV=(ok,d)=>ok?.7+.1*d:.1*(d-1);
+function startRun(mode){const sc=$('#qs').value,n=mode=='battle'?5:mode=='diag'?T.length:+$('#qn').value||6;
+ R={mode,sc,n,i:0,q:null,fb:null,bef:JSON.parse(JSON.stringify(S.m)),log:[]};nq()}
+function nq(){if(R.i>=R.n){R.q=null;R.done=1;return render()}
+ R.q=R.mode=='diag'?(()=>{const t=T[R.i];for(const it of ITEMS.filter(z=>z.t==t&&!S.asked[z.id])){const q=mkQ(it,1);if(q)return q}return null})():pick(R.mode=='battle'?R.sc:R.sc,R.mode);
+ if(!R.q){R.q=null;R.done=1;R.empty=1}render()}
+function choose(i){const q=R.q,o=q.opts[i],ok=o.t==q.ans,b=upd(q.t,EV(ok,q.d),R.mode);S.asked[q.id]=1;S.n++;if(ok)S.ok++;
+ const x=S.m[q.t];x.lv=ok?Math.min(3,x.lv+1):Math.max(1,x.lv-1);let mi=null;
+ if(!ok){const k=q.t+'|'+o.topic,z=S.mis[k]=S.mis[k]||{topic:q.t,cnt:0,d:o.topic!=q.t?`Confuses "${q.t}" with "${o.topic}" (chose "${o.t}")`:`Mixes up concepts within "${q.t}" (chose "${o.t}")`};z.cnt++;z.conf=Math.min(.95,.25+.2*z.cnt);mi=z}
+ R.fb={ok,b,a:x.m,q,mi,pick:i};R.log.push(ok);save();render()}
+function nba(){const st=T.filter(t=>S.m[t].n>0);
+ if(!st.length)return{h:'Take the diagnostic',w:'No learner history yet. A short diagnostic builds your Learning Twin.',b:'Start diagnostic',f:"go('quiz')"};
+ const mi=Object.values(S.mis).sort((a,b)=>b.conf-a.conf)[0];
+ if(mi&&mi.conf>=.45){const ci=C.findIndex(c=>c.t==mi.topic);return{h:'Review misconception in '+mi.topic,w:mi.d+' (confidence '+pc(mi.conf)+', seen '+mi.cnt+'×).',b:'Read the source',f:`openSrc(${ci})`}}
+ const w=[...st].sort((a,b)=>S.m[a].m-S.m[b].m)[0];
+ if(S.m[w].m<.6){const pre=(PRE[w]||[]).find(p=>S.m[p].n==0||S.m[p].m<.5);const t=pre||w;return{h:(pre?'Review prerequisite: ':'Practice ')+t,w:pre?`${w} is weak (${pc(S.m[w].m)}) and its prerequisite ${t} is not solid.`:`Lowest mastery: ${pc(S.m[w].m)}.`,b:'Mastery Battle',f:`go('quiz','${t}')`}}
+ const un=T.find(t=>S.m[t].n==0);return un?{h:'Explore '+un,w:'Not studied yet.',b:'Quiz this topic',f:`go('quiz','${un}')`}:{h:'Maintain: take a mixed quiz',w:'All topics are above 60%.',b:'Adaptive quiz',f:"go('quiz')"}}
+const col=t=>{const x=S.m[t];return x.n==0?'var(--gr)':x.m<.4?'var(--r)':x.m<.7?'var(--y)':'var(--g)'};
+const mb=(t)=>`<div style="margin:8px 0"><div style="display:flex;justify-content:space-between"><span>${esc(t)}</span><span>${S.m[t].n?pc(S.m[t].m):'not studied'}</span></div><div class="bar"><i style="width:${S.m[t].n?S.m[t].m*100:0}%;background:${col(t)}"></i></div></div>`;
+function go(t,a){tab=t;if(a)sel=a;render()}
+function render(){const tabs=[['dash','◧  Dashboard'],['twin','◉  Learning Twin'],['tutor','✦  Tutor'],['quiz','⚡  Quiz & Battle'],['uni','◎  Course Universe'],['teach','✎  Teach-It-Back'],['plan','▦  Planner'],['eval','◈  Evaluation'],['src','⬆  Sources']];
+ $('#nav').innerHTML=tabs.map(a=>`<button class="${tab==a[0]?'on':''}" onclick="go('${a[0]}')">${a[1]}</button>`).join('');$('#main').innerHTML=V[tab]()}
+const V={dash(){const st=T.filter(t=>S.m[t].n>0),o=avg(st.map(t=>S.m[t].m)),n=nba(),weak=[...st].sort((a,b)=>S.m[a].m-S.m[b].m).slice(0,3),rd=avg(T.map(t=>S.m[t].n?S.m[t].m:0));
+ const rec=T.filter(t=>S.ev.some(e=>e.t==t)).slice(0,4).map(t=>{const e=S.ev.filter(z=>z.t==t);return`<p>${esc(t)}: ${[e[0].b,...e.slice(-4).map(z=>z.a)].map(pc).join(' → ')}</p>`}).join('')||'<p class="mu">No activity yet.</p>';
+ return`<div class="hero"><div><div style="opacity:.8;font-size:12px;letter-spacing:1.5px">AN AI TUTOR THAT KNOWS YOUR COURSE AND KNOWS YOU</div><h1>Hello, Student 👋</h1><p>${C.length} source-linked units · ${T.length} topics · ${st.length?st.length+' topics tracked in your Learning Twin':'take the diagnostic to build your Learning Twin'}.</p></div><button class="btn" onclick="go('quiz')">Start learning</button></div>
+ <div class="stats">${[['QUESTIONS SOLVED',S.n],['ACCURACY',S.n?pc(S.ok/S.n):'—'],['MISCONCEPTIONS',Object.keys(S.mis).length],['EST. READINESS',pc(rd)]].map(a=>`<div class="tile"><small>${a[0]}</small><div>${a[1]}</div></div>`).join('')}</div>
+ <div class="grid"><div class="card"><h3>Overall mastery</h3><div class="ring" style="--p:${st.length?o*100:0}"><b>${st.length?pc(o):'—'}</b></div><p class="mu">${S.n} questions · accuracy ${S.n?pc(S.ok/S.n):'—'} · ${Object.keys(S.mis).length} misconceptions<br>Estimated readiness (unstudied topics count as 0): ${pc(rd)}</p></div>
+ <div class="card nba"><h3>◆ Next best action</h3><p><b>${esc(n.h)}</b></p><p class="mu">${esc(n.w)}</p><button class="btn pri" onclick="${n.f}">${n.b}</button></div></div>
+ <div class="grid"><div class="card"><h3>Weak concepts</h3>${weak.map(mb).join('')||'<p class="mu">Run the diagnostic first.</p>'}</div><div class="card"><h3>Recent progress (measured)</h3>${rec}</div></div>
+ <div class="card"><h3>Quick actions</h3>${[['tutor','Ask Tutor'],['quiz','Take Quiz'],['src','Upload Material'],['quiz','Mastery Battle'],['teach','Teach It Back'],['plan','Study Plan']].map(a=>`<button class="btn" onclick="go('${a[0]}')">${a[1]}</button> `).join('')}</div>`},
+twin(){const n=T.length,R0=105,pt=(i,r)=>{const a=i/n*6.283-1.571;return[200+r*Math.cos(a),150+r*Math.sin(a)]},
+ pl=T.map((t,i)=>pt(i,R0*(S.m[t].n?S.m[t].m:0)).join(',')).join(' '),
+ gd=[.25,.5,.75,1].map(f=>`<polygon points="${T.map((t,i)=>pt(i,R0*f).join(',')).join(' ')}" fill="none" stroke="var(--b)"/>`).join(''),
+ lb=T.map((t,i)=>{const p=pt(i,R0+18);return`<text x="${p[0]}" y="${p[1]}" text-anchor="middle" font-size="11" fill="var(--mu)">${esc(t)}</text>`}).join(''),
+ st=T.filter(t=>S.m[t].n>0),sr=st.filter(t=>S.m[t].m>=.7),wk=st.filter(t=>S.m[t].m<.5),ms=Object.values(S.mis),nb=nba();
+ return`<h2>Learning Twin</h2><p class="mu">Your live knowledge state, computed from ${S.ev.length} logged mastery updates.</p><div class="grid"><div class="card"><h3>Mastery radar</h3><svg viewBox="0 0 400 310" width="100%">${gd}<polygon points="${pl}" fill="#5b5bf044" stroke="var(--ac)" stroke-width="2"/>${lb}</svg></div>
+ <div class="card"><h3>Strengths</h3>${sr.map(mb).join('')||'<p class="mu">None above 70% yet.</p>'}<h3 style="margin-top:14px">Weaknesses</h3>${wk.map(mb).join('')||'<p class="mu">None below 50%.</p>'}</div></div>
+ <div class="card"><h3>Detected misconceptions</h3>${ms.map(z=>`<p><span class="tag n">${pc(z.conf)}</span> ${esc(z.d)} <span class="mu">· seen ${z.cnt}×</span></p>`).join('')||'<p class="mu">None yet. Take a quiz.</p>'}</div>
+ <div class="card nba"><h3>◆ Recommendation</h3><p><b>${esc(nb.h)}</b></p><p class="mu">${esc(nb.w)}</p><button class="btn pri" onclick="${nb.f}">${nb.b}</button></div>`},
+tutor(){return`<div class="card"><h2>Source-grounded tutor</h2><p class="mu">Answers are extracted verbatim from your material (no generative model), so citations cannot be invented.</p><div class="chips">${(C.length==DEMO.length?['What is the kernel trick?','How does KNN classify a point?','What is information gain?','Explain backpropagation']:[]).map(s=>`<button onclick="$('#q').value=this.textContent;ask()">${s}</button>`).join('')}</div>
+ ${M.map(m=>m.me?`<div class="msg me"><span>${esc(m.x)}</span></div>`:`<div class="msg"><span class="tag ${m.st}">${LAB[m.st]}</span> <span class="mu">coverage ${pc(m.cv)}</span><div class="bar" style="margin:8px 0"><i style="width:${m.cv*100}%;background:var(--${m.st=='g'?'g':m.st=='p'?'y':'r'})"></i></div>${m.x}</div>`).join('')}
+ <div style="display:flex;gap:6px;flex-wrap:wrap"><input id="q" style="flex:1;min-width:180px" aria-label="Question" placeholder="Ask about your course…" onkeydown="if(event.key=='Enter')ask()"><button class="btn pri" onclick="ask()">Ask</button><button class="btn" onclick="mic()">Voice</button></div></div>`},
+quiz(){const so=`<select id="qs"><option value="all">All topics (adaptive)</option>${T.map(t=>`<option ${sel==t?'selected':''}>${esc(t)}</option>`).join('')}</select>`;
+ let b='';if(R&&R.q){const q=R.q,f=R.fb;b=`<div class="card"><div class="bar" style="margin-bottom:12px"><i style="width:${R.i/R.n*100}%;background:var(--ac)"></i></div><p class="mu">${R.mode.toUpperCase()} · Q${R.i+1}/${R.n} · ${esc(q.t)} · difficulty ${q.d}/3 · <button class="pill" onclick="openSrc(${q.ci})">source</button></p><p style="font-size:19px;line-height:1.5"><b>${esc(q.stem)}</b></p>
+  ${q.opts.map((o,i)=>`<button class="opt" ${f?'disabled':''} style="${f&&o.t==q.ans?'border-color:var(--g)':f&&i==f.pick?'border-color:var(--r)':''}" onclick="choose(${i})">${esc(o.t)}</button>`).join('')}
+  <details><summary class="mu">Verification checks (all passed before showing)</summary><p class="mu">${q.v.map(z=>'✓ '+z[0]).join(' · ')}</p></details>
+  ${f?`<p><span class="tag ${f.ok?'g':'n'}">${f.ok?'Correct':'Incorrect'}</span> Mastery ${esc(q.t)}: ${pc(f.b)} → ${pc(f.a)}</p><p class="mu">Explained by source: ${esc(C[q.ci].x)} ${cite(q.ci)}</p>${f.mi?`<p><b>Likely misconception</b> (${pc(f.mi.conf)}): ${esc(f.mi.d)}${f.mi.cnt>1?'. Repeated pattern.':''}</p>`:''}<button class="btn pri" onclick="R.i++;R.fb=null;nq()">Next</button>`:''}</div>`}
+ else if(R&&R.done){const ch=T.filter(t=>S.m[t].n>(R.bef[t].n)),w=ch.filter(t=>S.m[t].m<.5);b=`<div class="card"><h2>${R.mode=='battle'?'Mastery Battle':'Assessment'} report</h2>${R.empty?'<p>No unseen verified questions left for this scope. Never repeating a question is enforced.</p>':''}<p>${R.log.filter(x=>x).length}/${R.log.length} correct</p>
+  ${ch.map(t=>`<p>${esc(t)}: ${pc(R.bef[t].m)} → ${pc(S.m[t].m)} (${S.m[t].m>=R.bef[t].m?'+':''}${Math.round((S.m[t].m-R.bef[t].m)*100)} pp, measured)</p>`).join('')}<p class="mu">Weak topics: ${w.map(esc).join(', ')||'none'}</p><button class="btn pri" onclick="go('dash')">See next best action</button></div>`}
+ return`<div class="card"><h2>Diagnostic, adaptive quiz & Mastery Battle</h2><p class="mu">Correct → harder, wrong → easier. Questions are verified and never repeated.</p>${so} <input id="qn" type="number" min="1" max="20" value="6" style="width:60px" aria-label="Number of questions">
+ </div><div class="grid">${[['diag','Diagnostic','Find out what you already know: one question per topic.'],['quiz','Adaptive quiz','Difficulty rises and falls with your answers.'],['battle','Mastery Battle','5 questions on one topic with a measured before/after.']].map(a=>`<div class="card mode" tabindex="0" role="button" onclick="startRun('${a[0]}')" onkeydown="if(event.key=='Enter')startRun('${a[0]}')"><h3>${a[1]}</h3><p class="mu">${a[2]}</p></div>`).join('')}</div>${b}`},
+uni(){const W=400,pos={};T.forEach((t,i)=>{const a=i/T.length*6.283-1.57;pos[t]=[200+150*Math.cos(a),190+140*Math.sin(a)]});
+ let e='';Object.entries(PRE).forEach(([t,ps])=>ps.forEach(p=>{if(pos[p]&&pos[t])e+=`<line x1="${pos[p][0]}" y1="${pos[p][1]}" x2="${pos[t][0]}" y2="${pos[t][1]}" stroke="var(--mu)" stroke-width="1.5" stroke-dasharray="4"/>`}));
+ const nd=T.map(t=>`<g tabindex="0" role="button" aria-label="${esc(t)}" style="cursor:pointer" onclick="go('uni','${esc(t).replace(/'/g,'')}')" onkeydown="if(event.key=='Enter')this.dispatchEvent(new Event('click'))"><circle cx="${pos[t][0]}" cy="${pos[t][1]}" r="${sel==t?28:22}" fill="${col(t)}"/><text x="${pos[t][0]}" y="${pos[t][1]+40}" text-anchor="middle" font-size="11" fill="var(--t)">${esc(t)}</text></g>`).join('');
+ const cn=T.map((t,i)=>{const a=i/T.length*6.283-1.57,ks=[...new Set(C.filter(c=>c.t==t).flatMap(c=>c.k))].slice(0,4);return ks.map((k,j)=>{const b=a+(j-(ks.length-1)/2)*.3,x=200+215*Math.cos(b),y=190+175*Math.sin(b);return`<line x1="${pos[t][0]}" y1="${pos[t][1]}" x2="${x}" y2="${y}" stroke="var(--b)"/><circle cx="${x}" cy="${y}" r="5" fill="${col(t)}" opacity=".55"/><text x="${x}" y="${y+14}" text-anchor="middle" font-size="8" fill="var(--mu)">${esc(k)}</text>`}).join('')}).join('');
+ let p='';if(sel&&S.m[sel]){const cs=C.map((c,i)=>[c,i]).filter(z=>z[0].t==sel);p=`<div class="card"><h2>${esc(sel)}</h2>${mb(sel)}<p class="mu">Concepts: ${[...new Set(cs.flatMap(z=>z[0].k))].map(esc).join(', ')}<br>Prerequisites: ${(PRE[sel]||[]).map(esc).join(', ')||'none'}</p><p>${cs.map(z=>cite(z[1])).join('')}</p>${Object.values(S.mis).filter(z=>z.topic==sel).map(z=>`<p>Misconception: ${esc(z.d)}</p>`).join('')}<button class="btn pri" onclick="go('quiz','${esc(sel)}')">Quiz this topic</button> <button class="btn" onclick="$('#q')||go('tutor')">Ask tutor</button></div>`}
+ return`<div class="card"><h2>Course Universe</h2><p class="mu">Green mastered · yellow learning · red weak · gray not studied. Dashed lines = prerequisite (demo course map is hand-authored; custom courses have no prerequisites).</p><svg viewBox="-50 0 500 390" width="100%" style="max-width:760px;display:block;margin:auto">${e}${cn}${nd}</svg></div>${p}`},
+teach(){return`<div class="card"><h2>Teach-It-Back <span class="mu">(prototype: keyword-based)</span></h2><p class="mu">Explain a topic like to a beginner. Coverage = share of the topic's course concepts you mentioned. Factual accuracy is not judged without an LLM.</p><select id="tt">${T.map(t=>`<option>${esc(t)}</option>`).join('')}</select><textarea id="tx" rows="5" aria-label="Your explanation"></textarea><button class="btn pri" onclick="teach()">Evaluate</button><div id="tr"></div></div>`},
+plan(){return`<div class="card"><h2>Study planner</h2><p>Exam in <input id="pd" type="number" min="1" max="60" value="12" style="width:60px"> days, <input id="pm" type="number" min="15" value="120" style="width:70px"> min/day <button class="btn pri" onclick="mkPlan()">Generate</button></p><p class="mu">Weak and unstudied topics get more days; prerequisites come first. Edit any day.</p><div id="pl">${P?planH():''}</div></div>`},
+eval(){return`<div class="card"><h2>Evaluation Center</h2><p class="mu">Real runs on this course. Faithfulness is 100% by construction (answers are verbatim extracts), so it is not reported as a model metric. RAGAS/DeepEval are not integrated yet (Future Enhancement). Retrieval metrics are deterministic.</p><button class="btn pri" onclick="runEval()">Run RAG evaluation</button> <button class="btn pri" onclick="runSim()">Run student simulation</button>${EVR||''}${SIM||''}</div>`},
+src(){return`<div class="card"><h2>Sources & upload</h2><p class="mu">Demo course: ML (self-written, ${C.length} units). Upload is text-only in this prototype: PDF/PPTX/video parsing is a Future Enhancement. Format per line: <code>Topic | Source label | text</code>. Slide/video labels are detected from "Slide" or a mm:ss timestamp.</p><input type="file" accept=".txt" onchange="up(this)" aria-label="Upload txt"><textarea id="cu" rows="6" placeholder="Kernel Trick | Slide 3 | The kernel trick …"></textarea><button class="btn pri" onclick="useCust()">Build my course</button> <button class="btn" onclick="S=DEF();boot(1);M=[];R=null;save();render()">Reset to demo</button></div>
+ <div class="card"><h3>Ingested units</h3>${C.map((c,i)=>`<p>${cite(i)} <b>${esc(c.t)}</b> <span class="mu">${c.k.map(esc).join(', ')}</span></p>`).join('')}</div>`}};
+function up(el){const f=el.files[0];if(!f||f.size>2e5)return alert('TXT only, under 200 KB');f.text().then(t=>$('#cu').value=t)}
+function useCust(){const L=$('#cu').value.split('\n').map(l=>l.split('|').map(s=>s.trim())).filter(a=>a.length>=3&&a[2].length>20).map(a=>[a[0],a[1],a.slice(2).join('|')]);
+ if(L.length<4)return alert('Need at least 4 valid lines');S=DEF();S.cust=L;boot(1);M=[];R=null;save();go('dash')}
+function teach(){const t=$('#tt').value,tx=new Set(tok($('#tx').value)),ks=[...new Set(C.filter(c=>c.t==t).flatMap(c=>c.k))],hit=ks.filter(k=>tok(k).every(w=>tx.has(w))),cv=ks.length?hit.length/ks.length:0,miss=ks.filter(k=>!hit.includes(k));
+ const b=upd(t,cv,'teachback');save();const ci=C.findIndex(c=>c.t==t&&miss.some(m=>c.k.includes(m)));
+ $('#tr').innerHTML=`<p>Concept coverage: <b>${pc(cv)}</b> · Missing: ${miss.map(esc).join(', ')||'none'} · Mastery ${pc(b)} → ${pc(S.m[t].m)}</p>${ci>=0?`<p>Next: re-read ${cite(ci)}</p>`:''}`}
+function mkPlan(){const d=+$('#pd').value||12,need=T.map(t=>1-(S.m[t].n?S.m[t].m:.4)+.2),s=avg(need)*T.length,al=need.map(x=>Math.max(1,Math.round(d*x/s)));
+ const sm=()=>al.reduce((a,b)=>a+b,0);while(sm()>d&&Math.max(...al)>1)al[al.indexOf(Math.max(...al))]--;while(sm()<d){let b=0;need.forEach((x,i)=>{if(x/al[i]>need[b]/al[b])b=i});al[b]++}
+ P=[];T.forEach((t,i)=>{for(let k=0;k<al[i];k++)P.push(t)});P=d<T.length?[...T].sort((a,b)=>need[T.indexOf(b)]-need[T.indexOf(a)]).slice(0,d):P.slice(0,d);if(d>T.length+1)P[d-1]='Mixed review (weakest topics)';$('#pl').innerHTML=planH()}
+const planH=()=>P.map((t,i)=>`<p>Day ${i+1}: <select onchange="P[${i}]=this.value">${[...T,'Mixed review (weakest topics)'].map(o=>`<option ${o==t?'selected':''}>${esc(o)}</option>`).join('')}</select> <span class="mu">${$('#pm')?$('#pm').value:120} min</span></p>`).join('');
+function runEval(){let h1=0,h3=0,na=0,ref=0,fr=0,nn=0,rows='';EVAL.forEach(([q,e])=>{const r=search(q),ids=r.r.map(o=>o.i);if(e!==null){na++;h1+=ids[0]==e;h3+=ids.includes(e);fr+=r.st=='n'}else{nn++;ref+=r.st=='n'}
+ rows+=`<tr><td>${esc(q)}</td><td>${e===null?'off-material':'c'+e}</td><td>${ids[0]!==undefined?'c'+ids[0]:'-'}</td><td><span class="tag ${r.st}">${r.st=='g'?'grounded':r.st=='p'?'partial':'refused'}</span></td></tr>`});
+ EVR=`<h3 style="margin-top:14px">Retrieval & grounding (${EVAL.length} questions: ${na} answerable, ${nn} off-material)</h3><p>Hit@1 <b>${pc(h1/na)}</b> · Hit@3 <b>${pc(h3/na)}</b> · Correct refusal of off-material <b>${pc(ref/nn)}</b> · False refusal of answerable <b>${pc(fr/na)}</b></p><table><tr><th>Question</th><th>Expected</th><th>Top hit</th><th>Shield</th></tr>${rows}</table>`;render()}
+function rng(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function sim(prof,pol,seed,N){const r=rng(seed),sk={},m={};T.forEach(t=>{sk[t]=Math.min(.95,Math.max(.1,prof+(r()-.5)*.4));m[t]={m:.5,lv:1}});const s0={...sk},seen=new Set();let rep=0,n=0;
+ for(let k=0;k<N;k++){let it;if(pol=='ad'){for(const t of [...T].sort((a,b)=>m[a].m-m[b].m)){it=ITEMS.find(x=>x.t==t&&!seen.has(x.id));if(it)break}}else it=ITEMS[Math.floor(r()*ITEMS.length)];
+  if(!it)break;if(seen.has(it.id))rep++;seen.add(it.id);n++;const o=m[it.t],d=o.lv,ok=r()<sk[it.t]*(1-.1*(d-1));o.m=.7*o.m+.3*EV(ok,d);o.lv=ok?Math.min(3,d+1):Math.max(1,d-1);sk[it.t]+=.05*(1-sk[it.t])}
+ const wk=[...T].sort((a,b)=>s0[a]-s0[b]).slice(0,2);return[avg(wk.map(t=>sk[t]-s0[t])),rep/Math.max(1,n),avg(T.map(t=>Math.abs(m[t].m-sk[t]))),n]}
+function runSim(){let rows='';[['A strong',.85],['B average',.6],['C weak',.35]].forEach(([nm,p])=>['ad','rnd'].forEach(pol=>{const rs=Array.from({length:20},(_,i)=>sim(p,pol,i+1,20));
+ rows+=`<tr><td>${nm}</td><td>${pol=='ad'?'NEXUS adaptive + dedupe':'Random, no dedupe'}</td><td>${avg(rs.map(r=>r[3])).toFixed(1)}</td><td>${(avg(rs.map(r=>r[0]))*100).toFixed(1)} pp</td><td>${pc(avg(rs.map(r=>r[1])))}</td><td>${pc(avg(rs.map(r=>r[2])))}</td></tr>`}));
+ SIM=`<h3 style="margin-top:14px">Simulated students (20 seeds each, 20 questions)</h3><table><tr><th>Student</th><th>Policy</th><th>Questions</th><th>Gain on 2 initially weakest topics</th><th>Repetition rate</th><th>Mastery estimate error</th></tr>${rows}</table><p class="mu">Simulated learners improve 5% of remaining gap per exposure. This validates the mechanism, not real-world learning gains.</p>`;render()}
+function mic(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR)return alert('Speech recognition is not supported in this browser.');const r=new SR();r.onresult=e=>{$('#q').value=e.results[0][0].transcript;ask()};r.start()}
+function theme(){const d=document.documentElement;d.dataset.theme=(d.dataset.theme||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'))=='dark'?'light':'dark'}
+boot();render();
+</script></body></html>
