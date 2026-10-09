@@ -1,0 +1,4 @@
+[
+  {"question": "What is the kernel trick?", "expected_source": "Lecture Slides, Slide 18", "answerable": true},
+  {"question": "Explain backpropagation in neural networks", "expected_source": null, "answerable": false}
+]
