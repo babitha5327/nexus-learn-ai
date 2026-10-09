@@ -1,0 +1,10 @@
+.env
+node_modules/
+__pycache__/
+.venv/
+dist/
+data/uploads/*
+!data/uploads/.gitkeep
+data/chroma/
+data/*.db
+.DS_Store
