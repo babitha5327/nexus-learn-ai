@@ -5,7 +5,7 @@
 Multimodal AI Hackathon 2026 · Track D: Personalized Tutoring & Adaptive Learning
 
 - **Live demo (website prototype):** [https://github.com/babitha5327/nexus-learn-ai/](https://babitha5327.github.io/nexus-learn-ai/)
-- **Demo video:** _add YouTube link_
+- **Demo video:** [_link_](https://drive.google.com/file/d/1u1AHEL0uk5S3W1oYOoiFrDIUnWykQPmU/view?usp=sharing)
 - **Devpost:** _add link_
 
 ## Problem
